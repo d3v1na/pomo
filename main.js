@@ -87,6 +87,11 @@ function start(){
     else{
         timerText.innerText = "done"
         document.querySelector('#progress').style.width = "100%"
+        //play sound
+        var audio = new Audio('wood.mp3')
+        audio.play();
+        stop()
+
     }
     
 }, 1000);
