@@ -6,74 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pomo!</title>
     <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/873999829225848885/916825277500362772/pngaaa.com-4954046.png" type="image/x-icon">
-    <style>
-        button{
-            padding: 2%;
-            border-radius: 5%;
-            font-size: x-large;
-            font-family: Arial, Helvetica, sans-serif;
-            /* font-weight: bold; */
-            color: rgb(6, 238, 255);
-            background-color: rgb(195, 0, 255);
-            border: none;
-            margin: 10px;
-            cursor: pointer;
-            transition: 0.2s linear;
-        }
-        button:hover{
-            background-color: rgb(255, 174, 255);
-        }
-        input{
-            padding: 4%;
-            border-radius: 50%;
-            font-size: xx-large;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            color: rgb(6, 238, 255);
-            background-color: rgb(255, 0, 255);
-            border: none;
-            margin-top: 2px;
-            cursor: pointer;
-            transition: 0.2s linear;
-        }
-        input:hover{
-            background-color: rgb(255, 174, 255);
-        }
-        
-        body{
-            background-color: blueviolet;
-            color: rgb(0, 238, 255);
-            text-align: center;
-        }
-        h1{
-            font-size: 100px;
-            font-family: "Comic Sans MS", "Comic Sans";
-        }
-        p{
-            font-size: 80px;
-            font-family: "Comic Sans MS", "Comic Sans";
-            font-weight: normal;
-        }
-    #progress{
-        height: 60px;
-        background-color: chartreuse;
-        width: 0%;
-        margin-top: 100px;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="row">
+        <p id="settings" onclick="displaySettings()">⚙️</p>
+        <div class="right">
+            <p class="smalltext">auto start</p>
+            <!-- Rounded switch -->
+            <label class="switch">
+                <input type="checkbox" id="toggle-button">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
+    </div>
+    
     <h1>pomo!</h1>
     
-    <button onclick="study(25)">pomodoro</button>
-    <button onclick="short(5)">short break</button>
-    <button onclick="long(15)">long break</button>
+    <button onclick="study(studyTime)" id="pomobtn">pomodoro</button>
+    <button onclick="short(shortTime)" id="shortbtn">short break</button>
+    <button onclick="long(longTime)" id="longbtn">long break</button>
     <p id="timer">00:00:05</p>
     <input type="button" id="mixBut" value="start" />
     <!-- <button onclick="start()">start</button>
     <button onclick="stop()">stop</button> -->
     
     <div id="progress"></div>
+    <div id="modal">
+        <p id="close-btn" onclick="closeSettings()">X</p>
+        <h1 id="setting">settings</h1>
+        <div class="modal-row">
+            <div class="setting"><p>pomodoro</p>
+                <input type="number" value="25" id="study">
+            </div>
+            <div class="setting"><p>short break</p>
+                <input type="number" value="5" id="short">
+            </div>
+            <div class="setting"><p>long break</p>
+                <input type="number" value="15" id="long">
+            </div>    
+        </div>
+    </div>
     <script src="./main.js"></script>
 </body>
 </html>
