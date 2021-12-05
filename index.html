@@ -8,11 +8,13 @@
     <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/873999829225848885/916825277500362772/pngaaa.com-4954046.png" type="image/x-icon">
     <style>
         button{
-            padding: 5%;
-            border-radius: 50%;
-            font-size: large;
+            padding: 2%;
+            border-radius: 5%;
+            font-size: x-large;
+            font-family: Arial, Helvetica, sans-serif;
+            /* font-weight: bold; */
             color: rgb(6, 238, 255);
-            background-color: rgb(245, 4, 245);
+            background-color: rgb(195, 0, 255);
             border: none;
             margin: 10px;
             cursor: pointer;
@@ -21,35 +23,56 @@
         button:hover{
             background-color: rgb(255, 174, 255);
         }
+        input{
+            padding: 4%;
+            border-radius: 50%;
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: rgb(6, 238, 255);
+            background-color: rgb(255, 0, 191);
+            border: none;
+            margin-top: 2px;
+            cursor: pointer;
+            transition: 0.2s linear;
+        }
+        input:hover{
+            background-color: rgb(255, 174, 255);
+        }
+        
         body{
             background-color: blueviolet;
-            color: rgb(6, 238, 255);
+            color: rgb(0, 238, 255);
             text-align: center;
         }
         h1{
             font-size: 100px;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-family: "Comic Sans MS", "Comic Sans";
         }
         p{
             font-size: 80px;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-family: "Comic Sans MS", "Comic Sans";
+            font-weight: normal;
         }
     #progress{
         height: 60px;
         background-color: chartreuse;
         width: 0%;
+        margin-top: 100px;
     }
     </style>
 </head>
 <body>
     <h1>pomo!</h1>
     
-    <button onclick="study(25)">25 min</button>
-    <button onclick="short(5)">5 min</button>
-    <button onclick="long(15)">15 min</button>
+    <button onclick="study(25)">pomodoro</button>
+    <button onclick="short(5)">short break</button>
+    <button onclick="long(15)">long break</button>
     <p id="timer">00:00:05</p>
-    <button onclick="start()">start</button>
-    <button onclick="stop()">stop</button>
+    <input type="button" id="mixBut" value="start" />
+    <!-- <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button> -->
+    
     <div id="progress"></div>
     <script src="./main.js"></script>
 </body>

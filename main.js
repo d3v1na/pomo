@@ -10,6 +10,7 @@ var totalSeconds = (timeToSeconds(totalTimeObj))
 
 function study(mins){
     stop()
+    document.querySelector('#progress').style.width = "0%"
     if(mins>10){
         timerText.innerText = `00:${mins}:00`
     }
@@ -29,6 +30,7 @@ totalSeconds = (timeToSeconds(totalTimeObj))
 
 function short(mins){
     stop()
+    document.querySelector('#progress').style.width = "0%"
     if(mins>10){
         timerText.innerText = `00:${mins}:00`
     }
@@ -48,6 +50,7 @@ totalSeconds = (timeToSeconds(totalTimeObj))
 
 function long(mins){
     stop()
+    document.querySelector('#progress').style.width = "0%"
     if(mins>10){
         timerText.innerText = `00:${mins}:00`
     }
@@ -66,7 +69,12 @@ totalSeconds = (timeToSeconds(totalTimeObj))
 }
 var progress
 var timer
+var mixBut = document.getElementById("mixBut");
+mixBut.addEventListener("click", start);
 function start(){
+    mixBut.removeEventListener("click", start);
+    mixBut.addEventListener("click", stop);
+    mixBut.value = "stop";
     clearInterval(timer)
     var time = timerText.innerText.split(":")
     //convert time to timeobject
@@ -98,7 +106,12 @@ function start(){
 }
 
 function stop(){
+    mixBut.removeEventListener("click", stop);
+    mixBut.addEventListener("click", start);
+    mixBut.value = "start";
     clearInterval(timer)
+    // document.querySelector('#progress').style.width = "100%"
+
 }
 
 function timeToSeconds(time){
