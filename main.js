@@ -14,6 +14,7 @@ var totalTimeObj = {
     "h": totalTime[0],
     "m": totalTime[1],
     "s": totalTime[2]
+
 }
 
 var totalSeconds = (timeToSeconds(totalTimeObj))
@@ -103,6 +104,7 @@ var timer
 var mixBut = document.getElementById("mixBut");
 mixBut.addEventListener("click", start);
 function start(){
+
     if(currentTimer == "study"){
         document.querySelector('#pomobtn').style.backgroundColor = "white"
     }
@@ -131,8 +133,10 @@ function start(){
         timerText.innerText = secondsToTime(timeInSeconds).h + ":" + secondsToTime(timeInSeconds).m + ":" + secondsToTime(timeInSeconds).s
         progress = (100-((timeInSeconds/(totalSeconds))*100))
         document.querySelector('#progress').style.width = progress + "%"
+        document.title = timerText.innerText + " - pomo!"
     }
     else{
+        document.title = "pomo!"
         timerText.innerText = "˗ˏˋdone´ˎ˗"
         document.querySelector('#progress').style.width = "100%"
         //play sound
@@ -222,9 +226,16 @@ function displaySettings(){
 }
 
 function closeSettings(){
-    studyTime = document.querySelector('#study').value
-    shortTime = document.querySelector('#short').value 
-    longTime = document.querySelector('#long').value 
-    document.querySelector('#modal').style.display = "none"
+    var validTimes = (document.querySelector('#study').value>0&&document.querySelector('#study').value<9999) && (document.querySelector('#short').value>0&&document.querySelector('#short').value<9999) && (document.querySelector('#long').value>0&&document.querySelector('#long').value<9999)
+    if (validTimes){
+        studyTime = document.querySelector('#study').value
+        shortTime = document.querySelector('#short').value 
+        longTime = document.querySelector('#long').value 
+        document.querySelector('#modal').style.display = "none"
+    }
+    else{
+        alert("Please enter valid times")
+    }
+
 
 }
